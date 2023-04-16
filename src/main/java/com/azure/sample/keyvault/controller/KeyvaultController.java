@@ -39,7 +39,7 @@ public class KeyvaultController {
                 builder("850e9b80-3b92-43e6-add5-4cc1661d1ad3",
                         ClientCredentialFactory.createFromSecret("chj8Q~hzeRtCpI5hxnQEtXX4VESR2O74_gC6ZcQo")).
                 authority("https://login.microsoftonline.com/1499c20a-2ffb-494b-b51f-c9bf80364478/oauth2/token").build();
-        IAuthenticationResult result = clientApplication.acquireToken(ClientCredentialParameters.builder(Collections.singleton("api://keyvault-scope/default")).build()).join();
+        IAuthenticationResult result = clientApplication.acquireToken(ClientCredentialParameters.builder(Collections.singleton("api://keyvault-scope/default/.default")).build()).join();
         String token = Objects.nonNull(result) ? result.accessToken() : "No token found";
         return new ResponseEntity<>("my AAD token is :: " + token, HttpStatus.OK);
     }
