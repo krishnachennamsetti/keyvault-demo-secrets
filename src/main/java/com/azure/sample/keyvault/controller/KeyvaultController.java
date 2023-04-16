@@ -1,11 +1,11 @@
 package com.azure.sample.keyvault.controller;
 
+import com.azure.identity.ManagedIdentityCredentialBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.azure.identity.DefaultAzureCredentialBuilder;
 
 import com.azure.security.keyvault.secrets.SecretClient;
 import com.azure.security.keyvault.secrets.SecretClientBuilder;
@@ -21,10 +21,10 @@ public class KeyvaultController {
     public ResponseEntity<String> fetchSecrets() {
         SecretClient secretClient = new SecretClientBuilder()
                 .vaultUrl(keyVaultUri)
-                .credential(new DefaultAzureCredentialBuilder().build())
+                .credential(new ManagedIdentityCredentialBuilder().build())
                 .buildClient();
-        String secret = Objects.nonNull(secretClient) ? secretClient.getSecret("mysecret").toString() : "No secret found";
-        return new ResponseEntity<>(secret, HttpStatus.OK);
+        String secret = Objects.nonNull(secretClient) ? secretClient.getSecret("mysecret").getValue() : "No secret found";
+        return new ResponseEntity<>("my secret is :: " + secret, HttpStatus.OK);
     }
 
 }
