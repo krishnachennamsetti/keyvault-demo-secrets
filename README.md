@@ -3,7 +3,7 @@ Sample project to fetch secrets from azure keyvault and generate Azure active di
 
 # Test endpoints
 
-- [Fetching secrets from keyvaul](https://keyvault-demo-secrets.azurewebsites.net/keyvault/v1/secrets/fetch)
+- [Fetching secrets from keyvault](https://keyvault-demo-secrets.azurewebsites.net/keyvault/v1/secrets/fetch)
 
 - [Generating Azure Active Directory Token](https://keyvault-demo-secrets.azurewebsites.net/keyvault/v1/secrets/token)
 
