@@ -1,7 +1,7 @@
 # keyvault-demo-secrets
 Sample project to fetch secrets from azure keyvault and generate Azure active directory token
 
-# Steps to deploy in Azure
+# Steps to connect to keyvault and fetch secrets
 
 * Create a Subscription.
 * Create a Resource Group.
@@ -17,5 +17,13 @@ Sample project to fetch secrets from azure keyvault and generate Azure active di
 
 * Create a service principal under your active directory or everybody will have a default active directory. You can create service principal by going under Azure Active Directory -> app registrations -> new registraion.
 * Once you create a service principal create a secret for it and store the secret value as it will not be revealed later.
-*
+* Now Go to your keyvault and enable permissions for webapp and service principal to do that got to Your keyvault -> Access Configuration -> Under Permission model select Vault access policy -> Go to access policies -> create -> Select the template -> I selected Key,Secret and Certificate management -> next -> under principal select your webapp and service principal one by one and save it.
+
+<img width="1507" alt="Screenshot 2023-04-17 at 9 01 57 AM" src="https://user-images.githubusercontent.com/39440188/232409304-4ff77101-38bb-4a93-bd8b-25f3907b79d9.png">
+
+<img width="1299" alt="Screenshot 2023-04-17 at 9 02 14 AM" src="https://user-images.githubusercontent.com/39440188/232409350-0d0c5cf8-8ed2-4fe5-bf2b-80b819a04540.png">
+
+<img width="1059" alt="Screenshot 2023-04-17 at 9 02 25 AM" src="https://user-images.githubusercontent.com/39440188/232409458-9f935a8b-69fc-480b-9e8e-5a9e73c562b2.png">
+
+* Now your webapp has access to your keyvault and you can fetch secrets from it using ManagedIDentities in our case we have provided system identity.
 
