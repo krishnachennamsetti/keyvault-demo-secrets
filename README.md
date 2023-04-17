@@ -1,6 +1,13 @@
 # keyvault-demo-secrets
 Sample project to fetch secrets from azure keyvault and generate Azure active directory token
 
+# Test endpoints
+
+- [Fetching secrets from keyvauly](https://keyvault-demo-secrets.azurewebsites.net/keyvault/v1/secrets/fetch)
+
+- [Generating Azure Active Directory Token](https://keyvault-demo-secrets.azurewebsites.net/keyvault/v1/secrets/token)
+
+
 # Steps to connect to keyvault and fetch secrets
 
 * Create a Subscription.
